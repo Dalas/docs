@@ -53,12 +53,16 @@ GO
 `DATABASE_HOST=YOUR_HOST DATABASE_NAME=YOUR_DATABASE_NAME DATABASE_USER=YOUR_DATABASE_USERNAME   DATABASE_PASSWORD=YOUR_DATABASE_PASSWORD python manage.py [command]`
 
  1. Изначально необходимо перенести данные из БД `mSites`. Для этого необходимо выполнить комманду:
+ 
 `[db_credentials] python manage.py exportdata`
+
 Экспорт может занять более часа (в зависимости от скорости работы БД).
 В случае прерывания работы скрипта необходимо повторно запустить его.
 
- 1. Перенос количества просмотров. 
- `[db_credentials] python manage.py exportdata`
+ 2. Перенос количества просмотров.
+ 
+ `[db_credentials] python manage.py exportnumviews`
+ 
 Скрипт может принимать 2 (опциональных) аргумента:
     - `--articles_num_views path/to/file.csv` - количество просмотров статей
     - `--news_num_views path/to/file.csv` - количество просмотров новостей
@@ -66,9 +70,19 @@ GO
     Файлы должны иметь формат:
     [id статьи/новости], [количество просмотров]
     Пример:
+    
+    ID, NumViews
+    
     32019,618911
+    
     36323,191537
-    33366,98598 ...
+    
+    33366,98598 ..
+    
+    По-умолчанию скрипт ищет файлы в директории '/dumps' в корне проекта. Файлы должны называться `articles_num_views.csv` и `news_num_views.csv` соответственно.
+    
+3. Переименование регионов.
 
+`[db_credentials] python manage.py rename_regions`
 
 
