@@ -106,6 +106,8 @@ GO
 
 ### Запуск миграций.
 
+необходимо руками удалить таблицу `dbo.content_journal_similar_journals` если таковая имеется.
+
 Запуск миграций производиться путем выполнения команд:
 
  1. `[db_credentials] python manage.py migrate` - API
