@@ -106,8 +106,6 @@ GO
 
 ### Запуск миграций.
 
-необходимо руками удалить таблицу `dbo.content_journal_similar_journals` если таковая имеется.
-
 Запуск миграций производиться путем выполнения команд:
 
  1. `[db_credentials] python manage.py migrate` - API
@@ -122,6 +120,8 @@ GO
 ### Экспорт данных
 
 #### Изначально необходимо перенести данные из БД `mSites`. Для этого необходимо выполнить комманду
+
+Необходимо руками удалить таблицу `dbo.content_journal_similar_journals` если таковая имеется. (Этап 1.2-1.3)
 
 `[db_credentials] python manage.py exportdata`
 
@@ -155,13 +155,17 @@ GO
 
 `[db_credentials] python manage.py rename_regions`
 
-#### Перенос подкатегорий
+#### Перенос подкатегорий (Этап 1.2-1.3)
 
 `[db_credentials] python manage.py exportsubcategories`
 
-#### Первоначальная генерация тегов
+#### Первоначальная генерация тегов (Этап 1.2-1.3)
 
 `[db_credentials] python manage.py generatetags`
+
+#### Первоначальная генерация блока читать по теме (Этап 1.2-1.3)
+
+`[db_credentials] python manage.py generatesimilarjournals`
 
 ### Миграция картинок
 
